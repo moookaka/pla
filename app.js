@@ -1,6 +1,5 @@
-let alarmSound = document.getElementById('alarm-sound');
-
 // タイマー関連
+let alarmSound = document.getElementById('alarm-sound');
 let isPlankTime = true;
 let plankDuration = 60; // 初期設定：1分
 let intervalDuration = 30; // 初期設定：30秒
@@ -89,10 +88,3 @@ resetButton.addEventListener('click', resetTimer);
 
 // 初期化
 resetTimer();
-
-// PWA Service Worker登録
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').then(() => {
-        console.log('Service Worker Registered');
-    });
-}
