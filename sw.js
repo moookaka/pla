@@ -1,4 +1,3 @@
-
 const CACHE_NAME = "plank-timer-cache-v1";
 const urlsToCache = [
     "./",
