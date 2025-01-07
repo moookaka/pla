@@ -5,7 +5,6 @@ body {
     padding: 0;
     background-color: #f3f3f3;
 }
-
 .timer-container {
     margin: 20px auto;
     padding: 20px;
@@ -16,42 +15,34 @@ body {
     box-shadow: 0 0 15px 5px rgba(255, 0, 0, 0.3); /* 赤い光を薄く調整 */
     transition: box-shadow 0.3s ease;
 }
-
 .timer-container:hover {
     box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.4); /* ホバー時の光も薄く調整 */
 }
-
 .timer-title {
     font-size: 24px;
     margin-bottom: 10px;
     color: #333;
 }
-
 #timer-display {
     font-size: 48px;
     margin: 20px 0;
 }
-
 .red-text {
     color: red;
 }
-
 .settings {
     margin: 15px 0;
 }
-
 label {
     display: block;
     margin: 5px 0;
 }
-
 input {
     margin-left: 10px;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-
 button {
     margin: 5px;
     padding: 10px 20px;
@@ -61,28 +52,23 @@ button {
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
-
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
-
 #start-button {
     background-color: #4CAF50;
     color: white;
 }
-
 #stop-button {
     background-color: #f44336;
     color: white;
 }
-
 #reset-button {
     background-color: #2196F3;
     color: white;
 }
-
 button:hover:not(:disabled) {
     background-color: #ff9800;
     color: white;
-}
+}  
