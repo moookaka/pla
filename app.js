@@ -1,17 +1,3 @@
-// サービスワーカーの登録
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then((registration) => {
-                console.log('Service Worker registered with scope: ', registration.scope);
-            })
-            .catch((error) => {
-                console.log('Service Worker registration failed: ', error);
-            });
-    });
-}
-
-// 以下、元のタイマー関連のコード（そのまま）
 let alarmSound = document.getElementById('alarm-sound');
 
 // タイマー関連
@@ -103,3 +89,10 @@ resetButton.addEventListener('click', resetTimer);
 
 // 初期化
 resetTimer();
+
+// PWA Service Worker登録
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').then(() => {
+        console.log('Service Worker Registered');
+    });
+}
