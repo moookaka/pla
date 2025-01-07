@@ -1,13 +1,15 @@
 const CACHE_NAME = 'plank-timer-cache-v1';
 const urlsToCache = [
-    './',
-    './index.html',
-    './style.css',
-    './script.js',
-    './icons/icon-192x192.png',
-    './icons/icon-512x512.png'
+    '/',
+    '/index.html',
+    '/style.css',
+    '/script.js',
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
+    'https://www.soundjay.com/button/beep-07.wav'
 ];
 
+// インストール時にキャッシュ
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -17,15 +19,7 @@ self.addEventListener('install', (event) => {
     );
 });
 
-self.addEventListener('fetch', (event) => {
-    event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                return response || fetch(event.request);
-            })
-    );
-});
-
+// サービスワーカーがアクティベートされたとき
 self.addEventListener('activate', (event) => {
     const cacheWhitelist = [CACHE_NAME];
     event.waitUntil(
@@ -38,5 +32,21 @@ self.addEventListener('activate', (event) => {
                 })
             );
         })
+    );
+});
+
+// リクエストをキャッシュから返す
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request)
+            .then((cachedResponse) => {
+                // キャッシュが見つかればそれを返す
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+
+                // キャッシュが見つからなければネットワークリクエスト
+                return fetch(event.request);
+            })
     );
 });
